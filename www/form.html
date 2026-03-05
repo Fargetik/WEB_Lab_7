@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        form {
+            width: 500px;
+            margin: 0.6% auto;
+            padding: 10px;
+            border: 2px solid #602538cd;
+            border-radius: 25px;
+        }
+
+        input {
+            margin: 5px 0;
+            width: 98.5%;
+            border: 2px solid rgb(51, 77, 77);
+            border-radius: 25px;
+            text-align: center;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+            margin: 10px 5px;
+            transform: scale(1.2);
+        }
+
+        input[name="time"] {
+            width: 35%;
+            margin: 5px 0;
+        }
+
+        select {
+            padding: 10px;
+            margin: 5px auto;
+            border: 5px thin;
+            width: 50%;
+            border-radius: 25px;
+        }
+
+        button {
+            width: 100%;
+            margin: 10px 0;
+            color: #000000ba;
+            background-color: rgb(119, 175, 175);
+            border: 5px thin;
+            border-radius: 25px;
+        }
+
+        div[id = "time_of_book"] {
+            width: 20%;
+            margin: 10px 0;
+        }
+
+
+        label {
+            white-space: nowrap;
+        }
+
+        div {
+            width: 500px;
+            margin: 0.6% auto;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <form id="myForm" action="process.php" и method="POST">
+
+        <input type="text" name="username" placeholder="Введите имя">
+        <input type="text" name="number_of_ticket" placeholder="номер билета">
+
+        <p> Жанр книги </p>
+        <select name="genre">
+            <option value="Roman"> Роман </option>
+            <option value="Fantasy"> Фентези </option>
+            <option value="Novella"> Новелла </option>
+            <option value="Poem"> Поэма </option>
+        </select>
+        
+        <input type="checkbox" name="subscribe"> Электронная версия 
+
+        <p> Срок аренды книги </p>
+        <div id = "time_of_book">
+            <br>
+                <label>
+                    <input type="radio" name="time" value="1_mouth"> 1 месяц
+                </label>
+                <label>
+                    <input type="radio" name="time" value="2_mouth"> 2 месяца
+                </label>
+                <label>
+                    <input type="radio" name="time" value="6_mouth"> 6 месяцев
+                </label>
+                <label>
+                    <input type="radio" name="time" value="12_mouth"> 12 месяцев
+                </label>
+            <br>
+        </div>
+
+        <button type="submit">Отправить</button>
+    </form>
+
+    <div id = "result"></div>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(e){
+            const username = document.querySelector("[name='username']").value;
+            alert("Спасибо, что заполнили форму, " + username);
+        });
+    </script>
+
+</body>
+</html>
